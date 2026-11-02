@@ -1,0 +1,19 @@
+modLoader = "javafml"
+loaderVersion = "[47,)"
+license = "MIT"
+
+# NOTE: no [[mixins]] block here. Forge 1.20.1 does not read it; the mixin config is
+# registered through the 'MixinConfigs' attribute in the jar manifest (see build.gradle).
+
+[[mods]]
+modId = "gtmsyncfix"
+version = "${file.jarVersion}"
+displayName = "GTM Material Entry Sync Fix"
+description = "Serialises GTCEu Modern's lazily-populated ChemicalHelper.getMaterialEntry caches so concurrent callers (render thread, REI cache threads) cannot corrupt the fastutil maps and hang in get()."
+
+[[dependencies.gtmsyncfix]]
+modId = "gtceu"
+mandatory = true
+versionRange = "[7.5.3,)"
+ordering = "AFTER"
+side = "BOTH"

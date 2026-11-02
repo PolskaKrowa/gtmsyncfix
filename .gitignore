@@ -1,0 +1,39 @@
+# Gradle / ForgeGradle
+.gradle/
+build/
+out/
+run/
+run-data/
+repo/
+gradle-app.setting
+!gradle/wrapper/gradle-wrapper.properties
+
+# IDEs
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+.settings/
+.classpath
+.project
+bin/
+*.launch
+.factorypath
+
+# JVM / profiling artefacts
+hs_err_pid*
+replay_pid*
+*.jfr
+*.hprof
+
+# Minecraft run output
+logs/
+crash-reports/
+saves/
+mods/*.jar
+
+# OS junk
+.DS_Store
+Thumbs.db
+desktop.ini

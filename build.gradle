@@ -1,0 +1,38 @@
+plugins {
+    id 'java'
+    id 'net.minecraftforge.gradle' version '[6.0,6.2)'
+}
+
+version = '1.0.1'
+group = 'dev.gtmsyncfix'
+base.archivesName = 'gtmsyncfix-1.20.1'
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+
+minecraft { mappings channel: 'official', version: '1.20.1' }
+
+repositories {
+    mavenCentral()
+    maven { url = 'https://repo.spongepowered.org/repository/maven-public/' }
+    maven {
+        url = 'https://maven.gtceu.com'
+        content { includeGroup 'com.gregtechceu.gtceu' }
+    }
+}
+
+dependencies {
+    minecraft 'net.minecraftforge:forge:1.20.1-47.3.0'
+    compileOnly 'org.spongepowered:mixin:0.8.5'
+    compileOnly('com.gregtechceu.gtceu:gtceu-1.20.1:7.5.3') { transitive = false }
+}
+
+jar {
+    // IMPORTANT: Forge 1.20.1 registers mixin configs ONLY from this manifest attribute.
+    // A [[mixins]] block in mods.toml is NeoForge-only and is silently ignored here,
+    // which means the mixin never loads (no error, no log line).
+    manifest.attributes(
+        'MixinConfigs': 'gtmsyncfix.mixins.json',
+        'Implementation-Title': project.name,
+        'Implementation-Version': project.version
+    )
+    finalizedBy 'reobfJar'
+}
