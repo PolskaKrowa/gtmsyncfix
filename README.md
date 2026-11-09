@@ -3,6 +3,7 @@
 A small Forge mod for Minecraft 1.20.1 that stops **GregTech Modern (GTCEu)** from freezing the game when
 several threads ask `ChemicalHelper.getMaterialEntry` for the first time at once.
 
+>[!NOTE]
 > Not affiliated with, or endorsed by, the GregTech CEu team.
 
 ## The problem
